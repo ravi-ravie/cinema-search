@@ -11,6 +11,15 @@ let genre = document.querySelector("#genre");
 let title = document.querySelector("#title");
 let miniDetails = document.querySelector("#mini-details");
 let description = document.querySelector("#description");
+let director = document.querySelector("#director");
+let released = document.querySelector("#released");
+let country = document.querySelector("#country");
+let language = document.querySelector("#language");
+let writer = document.querySelector("#writer");
+let actors = document.querySelector("#actors");
+let awards = document.querySelector("#awards");
+let boxOffice = document.querySelector("#box-office");
+let searchSection = document.querySelector(".search-section");
 
 let img = document.createElement("img");
 
@@ -42,7 +51,9 @@ suggestion.forEach(span =>{
 async function fetchMovie(movieName){
     let result = await fetch(`https://www.omdbapi.com/?apikey=e3120137&t=${movieName}`);
     movie = await result.json();
-    renderMovie(movie);
+    if(movie.Response==="True")
+        renderMovie(movie);
+    else errorMsgFunc();
 }
 
 function renderMovie(movie){
@@ -61,6 +72,8 @@ function showLanding(){
     landingContainer.classList.remove("hidden");
     movieContainer.classList.add("hidden");
     posterStyle.style.backgroundImage = "";
+    leftPoster.innerHTML = "";
+    searchBar.value = "";
 }
 
 backBtn.addEventListener("click", ()=>{
@@ -70,7 +83,6 @@ backBtn.addEventListener("click", ()=>{
 function movieDetails(){
     posterStyle.style.backgroundImage = `url(${movie.Poster})`;
 
-    leftPosterFunc();
     img.src = `${movie.Poster}`
     img.alt = `${movie.Title} Poster`
     leftPoster.appendChild(img);
@@ -81,7 +93,19 @@ function movieDetails(){
     title.innerText = `${movie.Title}`;
     miniDetails.innerText = `${movie.Year} · ${movie.Runtime} · ${movie.Rated} · ${movie.Language}`;
     description.innerText = `${movie.Plot}`;
+
+    director.innerText = `${movie.Director}`;
+    released.innerText = `${movie.Released}`;
+    country.innerText = `${movie.Country}`;
+    language.innerText = `${movie.Language}`;
+    writer.innerText = `${movie.Writer}`;
+    actors.innerText = `${movie.Actors}`;
+    awards.innerText = `${movie.Awards}`;
+    boxOffice.innerText = `${movie.BoxOffice}`;
 }
 
-
-
+function errorMsgFunc(){
+    let errorMsg = document.createElement("p");
+    errorMsg.innerText = `${searchBar.value} not found. Double-check the title and try again.`;
+    searchSection.after(errorMsg);
+}
