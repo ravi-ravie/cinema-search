@@ -8,7 +8,7 @@ let suggestion = document.querySelectorAll(".suggestion");
 let leftPoster = document.querySelector(".left-poster");
 let ratings = document.querySelector("#ratings");
 let genre = document.querySelector("#genre");
-let title = document.querySelector("#title");
+let movieTitle = document.querySelector("#title");
 let miniDetails = document.querySelector("#mini-details");
 let description = document.querySelector("#description");
 let director = document.querySelector("#director");
@@ -63,6 +63,7 @@ function renderMovie(movie){
 
 
 function hideLanding(){
+    console.log("hideLanding called", landingContainer, movieContainer);
     landingContainer.classList.add("hidden");
     movieContainer.classList.remove("hidden");
 }
@@ -90,7 +91,7 @@ function movieDetails(){
     ratings.innerText = `★ ${movie.imdbRating} /10 (${movie.imdbVotes})`;
 
     genre.innerText = `${movie.Genre}`;
-    title.innerText = `${movie.Title}`;
+    movieTitle.innerText = `${movie.Title}`;
     miniDetails.innerText = `${movie.Year} · ${movie.Runtime} · ${movie.Rated} · ${movie.Language}`;
     description.innerText = `${movie.Plot}`;
 

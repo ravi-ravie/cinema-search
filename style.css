@@ -3,13 +3,19 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
     --backgrd-clr : #080808;
     --font-sans : "DM Sans", sans-serif;
     --font-cormorant : "Cormorant Garamond", serif;
-
+    --color-general : #aaaaaa;
+    --color-white : #f0ede6;
+    --color-gold : #c9b99a;
+    --color-dim : #555555;
+    --color-black: #111111;
+    --color-border: #1e1e1e;
 }
 
 body{
@@ -20,7 +26,7 @@ body{
 }
 
 .hidden{
-    display: none;
+    display: none !important;
 }
 
 #poster-style{
@@ -45,71 +51,115 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 2rem 1.25rem;
 }
 
 .heading-cntnr{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.75rem;
 }
+
+/* Discover any film */
+/* Posters · Cast · Ratings · More */
 
 .title{
     text-align: center;
+    line-height: 4;
 }
 
 .title h2{
     font-family: var(--font-cormorant);
     font-weight: 300;
     font-size: clamp(36px, 10vw, 52px);
+    color: var(--color-white);
 }
+
+.discover-container{
+    line-height: 1.3;
+}
+
 
 .title p{
     font-size: 0.65rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 300;
+    color: var(--color-dim);
 }
 
 .cgItalic{
     font-family: var(--font-cormorant);
     font-style: italic;
+    color: var(--color-gold) !important;
 }
+
+/* cinema */
 
 .logo h5{
     font-size: 0.65rem;
     letter-spacing: 6px;
     text-transform: uppercase;
     font-weight: 300;
+    color: var(--color-general);
 }
+
+/* suggestions */
+
+.suggestionSpan{
+    font-size: 0.75rem;
+    color: var(--color-dim);
+}
+
+.suggestionSpan span{
+    word-spacing: 12px;
+}
+
+.suggestion{
+    color: var(--color-general);
+}
+
+/* SearchBar and Search */
+
 
 .search-cntnr{
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
-/* search Bar */
+.search-section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0.85rem;
+}
 
 input{
     font-size: 1rem;
     font-family: var(--font-cormorant);
     font-weight: 300;
+    color: var(--color-white);
+    background: #111111;
+    outline: none;
+    border: 0.5px solid var(--color-border);
+    padding: 0.85rem 1rem;
+    flex: 1;
+    
 }
 
 input::placeholder{
     font-family: var(--font-cormorant);
     font-style: italic;
     font-weight: 300;
+    color: var(--color-dim);
 }
 
 #searchBtn{
-    font-family: var(--font-cormorant);
-    font-size: 0.75rem;
-}
-
-/* suggestions */
-
-.suggestionSpan span{
-    font-size: 0.75rem;
-    word-spacing: 12px;
+    font-size: 0.60rem;
+    padding: 0.85rem 1.15rem;
+    background: var(--color-gold);
+    letter-spacing: 2px;
 }
