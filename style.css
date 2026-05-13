@@ -265,3 +265,36 @@ input::placeholder{
     margin-bottom: 1.75rem;
 }
 
+/* DISPLAY GRID SECTION */
+.display-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    border-top: 0.5px solid rgba(201, 185, 154, 0.5);
+}
+.display-cell{
+    border-bottom: 0.5px solid rgba(201, 185, 154, 0.5);
+    padding-bottom: 0.35rem;
+}
+
+.display-cell:nth-child(odd){
+    border-right: 0.5px solid rgba(201, 185, 154, 0.5);
+    padding-right: 1rem;
+}
+
+.display-cell:nth-child(even){
+    padding-left: 1rem;
+}
+
+.display-grid span{
+    font-size: 0.5rem;
+    color: var(--color-gold);
+    letter-spacing: 2px
+}
+
+.display-grid p{
+    font-size: 0.75rem;
+    color: var(--color-white);
+    font-weight: 300;
+    line-height: 1.5;
+}
