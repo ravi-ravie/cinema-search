@@ -47,6 +47,7 @@ suggestion.forEach(span =>{
     span.addEventListener("click", ()=>{
         searchBar.value = span.innerText;
         searchHandler();
+        errorMsgDeletion();
     });
 });
 
@@ -110,10 +111,23 @@ function movieDetails(){
 }
 
 function errorMsgFunc(){
+    if(document.querySelector(".errorMsg"))return;
     let errorMsg = document.createElement("p");
     errorMsg.classList.add("errorMsg");
     errorMsg.innerText = `${searchBar.value} not found. Double-check the title and try again.`;
     searchSection.after(errorMsg);
+}
+
+
+searchBar.addEventListener("focus", ()=>{
+    errorMsgDeletion();
+});
+
+function errorMsgDeletion(){
+    let errorMsg = document.querySelector(".errorMsg");
+
+    if(errorMsg)
+        errorMsg.remove();
 }
 
 window.addEventListener("scroll", ()=>{
