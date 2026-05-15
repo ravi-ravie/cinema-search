@@ -29,6 +29,7 @@ let movieName;
 let movie;
 
 function searchHandler(){
+    document.activeElement.blur();
     movieName = searchBar.value;
     if(movieName !== "")
         fetchMovie(movieName);
@@ -53,7 +54,7 @@ suggestion.forEach(span =>{
 });
 
 async function fetchMovie(movieName){
-    hideLanding();
+    landingContainer.classList.add("hidden");
     loadingScreen.classList.remove("hidden");
     let result = await fetch(`https://www.omdbapi.com/?apikey=e3120137&t=${movieName}&plot=full`);
     movie = await result.json();
@@ -67,15 +68,10 @@ async function fetchMovie(movieName){
 }
 
 function renderMovie(movie){
+    movieContainer.classList.remove("hidden");
     movieDetails();
 }
 
-
-function hideLanding(){
-    console.log("hideLanding called", landingContainer, movieContainer);
-    landingContainer.classList.add("hidden");
-    movieContainer.classList.remove("hidden");
-}
 
 
 function showLanding(){
@@ -135,3 +131,5 @@ function errorMsgDeletion(){
     if(errorMsg)
         errorMsg.remove();
 }
+
+

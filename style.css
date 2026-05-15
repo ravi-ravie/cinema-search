@@ -179,7 +179,9 @@ input::placeholder{
 }
 
 /* MOVIE CONTAINER */
-
+.movie-container{
+    user-select: none;
+}
 
 .movie-details{
     padding: 2rem 1.25rem 3rem;
@@ -327,23 +329,25 @@ input::placeholder{
     justify-content: center;
     min-height: 100svh;
     align-items: center;
+    user-select: none;
 }
 
 .loading-box{
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    transform: translatey(-50%);
+    /* transform: translateY(-50%); */
     align-items: center;
 }
 
 .spinner{
     width: 35px;
     height: 35px;
-    border: 2px solid rgba(201, 185, 154, 0.25);
+    border: 2px solid transparent;
+    /* border: 2px solid rgba(201, 185, 154, 0.25); */
     border-top: 2px solid var(--color-gold);
     border-radius: 50%;
-
+    border-right: 2px solid rgba(201, 185, 154, 0.35);
     animation: spinning 1s linear infinite;
 }
 
