@@ -135,9 +135,3 @@ function errorMsgDeletion(){
     if(errorMsg)
         errorMsg.remove();
 }
-
-window.addEventListener("scroll", ()=>{
-    let scrollAmount = window.scrollY;
-
-    posterStyle.style.transform = `scale(${1 + scrollAmount * 0.001})`;
-});
