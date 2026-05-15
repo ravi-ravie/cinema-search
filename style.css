@@ -359,11 +359,7 @@ input::placeholder{
 }
 
 /* RESPONSIVE */
-@media (max-width: 700px){
-    .poster-style{
-        position: absolute;
-    }
-}
+
 
 @media (min-width: 700px){
 
